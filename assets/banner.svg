@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 320" width="1200" height="320" role="img" aria-label="RIO - standalone realtime voice assistant">
+  <rect x="0" y="0" width="1200" height="320" rx="20" fill="#0b1220"/>
+  <rect x="0.5" y="0.5" width="1199" height="319" rx="20" fill="none" stroke="#22304a" stroke-width="1"/>
+
+  <!-- faint grid -->
+  <g stroke="#16233a" stroke-width="1">
+    <path d="M0 80 H1200"/><path d="M0 160 H1200"/><path d="M0 240 H1200"/>
+    <path d="M400 0 V320"/><path d="M800 0 V320"/>
+  </g>
+
+  <!-- robot eyes (the same face the OLED draws) -->
+  <g transform="translate(90,90)">
+    <rect x="0" y="0" width="100" height="130" rx="30" fill="#0f1c2e" stroke="#5eead4" stroke-width="4"/>
+    <rect x="130" y="0" width="100" height="130" rx="30" fill="#0f1c2e" stroke="#5eead4" stroke-width="4"/>
+    <circle cx="50" cy="65" r="24" fill="#5eead4"/>
+    <circle cx="180" cy="65" r="24" fill="#5eead4"/>
+    <g fill="none" stroke="#5eead4" stroke-width="3" opacity="0.45">
+      <path d="M-16 40 A 34 34 0 0 0 -16 90"/>
+      <path d="M246 40 A 34 34 0 0 1 246 90"/>
+    </g>
+  </g>
+
+  <!-- wordmark -->
+  <text x="400" y="150" font-family="Helvetica Neue,Helvetica,Arial,sans-serif" font-size="104" font-weight="700" fill="#e8eef6" letter-spacing="10">RIO</text>
+  <text x="640" y="150" font-family="Helvetica Neue,Helvetica,Arial,sans-serif" font-size="20" fill="#5eead4" letter-spacing="3">v3 &#183; FULL DUPLEX</text>
+  <text x="402" y="196" font-family="Helvetica Neue,Helvetica,Arial,sans-serif" font-size="24" fill="#9fb3c8">A standalone realtime voice assistant on a thumb-sized ESP32-S3.</text>
+  <text x="402" y="226" font-family="Helvetica Neue,Helvetica,Arial,sans-serif" font-size="19" fill="#6b7f96">No phone. No PC. No proxy. Just Wi-Fi, a mic, a camera and a speaker.</text>
+
+  <!-- chips -->
+  <g font-family="Helvetica Neue,Helvetica,Arial,sans-serif" font-size="15">
+    <rect x="402" y="252" width="150" height="36" rx="18" fill="#12243a" stroke="#2b4160"/>
+    <text x="477" y="275" fill="#7dd3fc" text-anchor="middle">Gemini Live API</text>
+
+    <rect x="564" y="252" width="152" height="36" rx="18" fill="#12243a" stroke="#2b4160"/>
+    <text x="640" y="275" fill="#5eead4" text-anchor="middle">Full-duplex AEC</text>
+
+    <rect x="728" y="252" width="150" height="36" rx="18" fill="#12243a" stroke="#2b4160"/>
+    <text x="803" y="275" fill="#fbbf24" text-anchor="middle">5 on-device tools</text>
+
+    <rect x="890" y="252" width="252" height="36" rx="18" fill="#12243a" stroke="#2b4160"/>
+    <text x="1016" y="275" fill="#fb7185" text-anchor="middle">Hindi &#183; English &#183; Hinglish</text>
+  </g>
+</svg>

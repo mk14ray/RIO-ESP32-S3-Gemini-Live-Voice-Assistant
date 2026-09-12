@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 660" width="1200" height="660" role="img" aria-label="RIO wiring: XIAO ESP32-S3 Sense to MAX98357A amplifier and SSD1306 OLED">
+  <rect x="0" y="0" width="1200" height="660" rx="18" fill="#0b1220"/>
+  <rect x="0.5" y="0.5" width="1199" height="659" rx="18" fill="none" stroke="#22304a"/>
+
+  <g font-family="Helvetica Neue,Helvetica,Arial,sans-serif">
+    <text x="40" y="44" font-size="22" font-weight="700" fill="#e8eef6">Wiring</text>
+    <text x="128" y="44" font-size="15" fill="#6b7f96">mic and camera are already on the board &#8212; only the amp and the OLED need wires</text>
+
+    <!-- ===== onboard peripherals ===== -->
+    <text x="40" y="92" font-size="12" font-weight="700" fill="#6b7f96" letter-spacing="2">ONBOARD (NO WIRING)</text>
+
+    <rect x="40" y="106" width="210" height="72" rx="10" fill="#0f1c2e" stroke="#2b4160"/>
+    <text x="145" y="132" font-size="13" font-weight="700" fill="#e8eef6" text-anchor="middle">PDM microphone</text>
+    <text x="145" y="152" font-size="12" fill="#8ea3ba" text-anchor="middle">GPIO 42 CLK &#183; 41 DATA</text>
+    <text x="145" y="170" font-size="11" fill="#6b7f96" text-anchor="middle">PDM RX exists only on I2S0</text>
+
+    <rect x="40" y="196" width="210" height="72" rx="10" fill="#0f1c2e" stroke="#2b4160"/>
+    <text x="145" y="222" font-size="13" font-weight="700" fill="#e8eef6" text-anchor="middle">OV2640 / OV3660</text>
+    <text x="145" y="242" font-size="12" fill="#8ea3ba" text-anchor="middle">12 DVP lines over B2B</text>
+    <text x="145" y="260" font-size="11" fill="#6b7f96" text-anchor="middle">SCCB 40/39, XCLK 10, PCLK 13</text>
+
+    <rect x="40" y="286" width="210" height="56" rx="10" fill="#0f1c2e" stroke="#2b4160"/>
+    <text x="145" y="312" font-size="13" font-weight="700" fill="#e8eef6" text-anchor="middle">user LED &#183; GPIO 21</text>
+    <text x="145" y="330" font-size="11" fill="#6b7f96" text-anchor="middle">active LOW</text>
+
+    <g stroke="#3d5470" stroke-width="2" fill="none">
+      <path d="M250 142 H330"/><path d="M250 232 H330"/><path d="M250 314 H330"/>
+    </g>
+
+    <!-- ===== the board ===== -->
+    <rect x="330" y="96" width="280" height="470" rx="14" fill="#131c2b" stroke="#4a6485" stroke-width="2"/>
+    <rect x="346" y="112" width="248" height="46" rx="8" fill="#0b1220" stroke="#2b4160"/>
+    <text x="470" y="134" font-size="15" font-weight="700" fill="#e8eef6" text-anchor="middle">XIAO ESP32-S3 Sense</text>
+    <text x="470" y="150" font-size="11" fill="#8ea3ba" text-anchor="middle">21 &#215; 17.5 mm &#183; 8 MB PSRAM &#183; 8 MB flash</text>
+
+    <text x="470" y="186" font-size="11" fill="#6b7f96" text-anchor="middle">LX7 dual-core @ 240 MHz &#183; 2.4 GHz Wi-Fi</text>
+    <text x="470" y="204" font-size="11" fill="#6b7f96" text-anchor="middle">I2S0 = mic (PDM RX) &#183; I2S1 = speaker (std TX)</text>
+
+    <rect x="360" y="228" width="220" height="52" rx="8" fill="#0d2b2b" stroke="#2f6b64"/>
+    <text x="470" y="249" font-size="12" font-weight="700" fill="#5eead4" text-anchor="middle">PSRAM must be set to OPI</text>
+    <text x="470" y="267" font-size="11" fill="#79b8ae" text-anchor="middle">it defaults to Disabled &#8212; nothing works without it</text>
+
+    <!-- pin stubs on the right edge -->
+    <g font-size="12" font-family="Menlo,Consolas,monospace">
+      <text x="586" y="322" fill="#a78bfa" text-anchor="end">D9 / GPIO 8</text>
+      <text x="586" y="352" fill="#60a5fa" text-anchor="end">D8 / GPIO 7</text>
+      <text x="586" y="382" fill="#5eead4" text-anchor="end">D10 / GPIO 9</text>
+      <text x="586" y="412" fill="#fbbf24" text-anchor="end">D7 / GPIO 44</text>
+      <text x="586" y="442" fill="#f87171" text-anchor="end">5V</text>
+      <text x="586" y="472" fill="#fca5a5" text-anchor="end">3V3</text>
+      <text x="586" y="502" fill="#94a3b8" text-anchor="end">GND</text>
+      <text x="586" y="532" fill="#fb7185" text-anchor="end">D4 / GPIO 5</text>
+      <text x="586" y="557" fill="#f472b6" text-anchor="end">D5 / GPIO 6</text>
+    </g>
+    <g>
+      <rect x="604" y="311" width="14" height="8" rx="2" fill="#a78bfa"/>
+      <rect x="604" y="341" width="14" height="8" rx="2" fill="#60a5fa"/>
+      <rect x="604" y="371" width="14" height="8" rx="2" fill="#5eead4"/>
+      <rect x="604" y="401" width="14" height="8" rx="2" fill="#fbbf24"/>
+      <rect x="604" y="431" width="14" height="8" rx="2" fill="#f87171"/>
+      <rect x="604" y="461" width="14" height="8" rx="2" fill="#fca5a5"/>
+      <rect x="604" y="491" width="14" height="8" rx="2" fill="#94a3b8"/>
+      <rect x="604" y="521" width="14" height="8" rx="2" fill="#fb7185"/>
+      <rect x="604" y="546" width="14" height="8" rx="2" fill="#f472b6"/>
+    </g>
+
+    <!-- ===== amp module ===== -->
+    <rect x="800" y="96" width="360" height="236" rx="12" fill="#1b1330" stroke="#7c5cc4" stroke-width="2"/>
+    <text x="980" y="124" font-size="15" font-weight="700" fill="#e8eef6" text-anchor="middle">MAX98357A breakout</text>
+    <text x="980" y="142" font-size="11" fill="#a99bd0" text-anchor="middle">I2S DAC + class-D amp &#183; 1&#215;7 header &#183; screw terminal out</text>
+
+    <g font-size="12" font-family="Menlo,Consolas,monospace">
+      <rect x="818" y="156" width="14" height="8" rx="2" fill="#a78bfa"/><text x="842" y="167" fill="#a78bfa">LRC</text>
+      <rect x="818" y="186" width="14" height="8" rx="2" fill="#60a5fa"/><text x="842" y="197" fill="#60a5fa">BCLK</text>
+      <rect x="818" y="216" width="14" height="8" rx="2" fill="#5eead4"/><text x="842" y="227" fill="#5eead4">DIN</text>
+      <rect x="818" y="246" width="14" height="8" rx="2" fill="#4b5563"/><text x="842" y="257" fill="#7b8798">GAIN</text>
+      <rect x="818" y="276" width="14" height="8" rx="2" fill="#fbbf24"/><text x="842" y="287" fill="#fbbf24">SD</text>
+      <rect x="818" y="306" width="14" height="8" rx="2" fill="#94a3b8"/><text x="842" y="317" fill="#94a3b8">GND</text>
+      <rect x="1090" y="306" width="14" height="8" rx="2" fill="#f87171"/><text x="1080" y="317" fill="#f87171" text-anchor="end">VIN</text>
+    </g>
+    <text x="900" y="257" font-size="11" fill="#7b8798" font-family="Helvetica Neue,Helvetica,Arial,sans-serif">leave unfitted &#8594; 9 dB (what the AEC was tuned against)</text>
+    <text x="884" y="287" font-size="11" fill="#c99a24" font-family="Helvetica Neue,Helvetica,Arial,sans-serif">driven, not floating: mutes the boot thump</text>
+    <text x="1146" y="183" font-size="11" fill="#a99bd0" text-anchor="end" font-family="Helvetica Neue,Helvetica,Arial,sans-serif">speaker goes to the module's</text>
+    <text x="1146" y="199" font-size="11" fill="#a99bd0" text-anchor="end" font-family="Helvetica Neue,Helvetica,Arial,sans-serif">own screw terminal (4&#8209;8 &#937;, 3 W)</text>
+
+    <!-- ===== oled module ===== -->
+    <rect x="800" y="392" width="360" height="174" rx="12" fill="#0d2233" stroke="#4b8fb8" stroke-width="2"/>
+    <text x="980" y="420" font-size="15" font-weight="700" fill="#e8eef6" text-anchor="middle">SSD1306 OLED &#183; 128&#215;64</text>
+    <text x="980" y="438" font-size="11" fill="#8fb9cf" text-anchor="middle">I2C at 0x3C, 400 kHz &#183; optional: boot continues without it</text>
+
+    <g font-size="12" font-family="Menlo,Consolas,monospace">
+      <rect x="818" y="456" width="14" height="8" rx="2" fill="#fca5a5"/><text x="842" y="467" fill="#fca5a5">VCC &#8592; 3V3</text>
+      <rect x="818" y="486" width="14" height="8" rx="2" fill="#94a3b8"/><text x="842" y="497" fill="#94a3b8">GND</text>
+      <rect x="818" y="516" width="14" height="8" rx="2" fill="#fb7185"/><text x="842" y="527" fill="#fb7185">SDA</text>
+      <rect x="818" y="546" width="14" height="8" rx="2" fill="#f472b6"/><text x="842" y="557" fill="#f472b6">SCL</text>
+    </g>
+    <text x="1146" y="527" font-size="11" fill="#8fb9cf" text-anchor="end" font-family="Helvetica Neue,Helvetica,Arial,sans-serif">the XIAO's hardware I2C</text>
+    <text x="1146" y="543" font-size="11" fill="#8fb9cf" text-anchor="end" font-family="Helvetica Neue,Helvetica,Arial,sans-serif">animated eyes + live subtitles</text>
+
+    <!-- ===== routes ===== -->
+    <g fill="none" stroke-width="2.5">
+      <path d="M618 315 H700 V160 H818" stroke="#a78bfa"/>
+      <path d="M618 345 H688 V190 H818" stroke="#60a5fa"/>
+      <path d="M618 375 H676 V220 H818" stroke="#5eead4"/>
+      <path d="M618 405 H664 V280 H818" stroke="#fbbf24"/>
+      <path d="M618 435 H652 V352 H1180 V310 H1104" stroke="#f87171"/>
+      <path d="M618 465 H770 V460 H818" stroke="#fca5a5"/>
+      <path d="M618 495 H640 V310 H818" stroke="#94a3b8"/>
+      <path d="M640 495 V490 H818" stroke="#94a3b8"/>
+      <path d="M618 525 H744 V520 H818" stroke="#fb7185"/>
+      <path d="M618 550 H818" stroke="#f472b6"/>
+    </g>
+    <text x="1156" y="626" font-size="11" fill="#c98282" text-anchor="end" font-family="Helvetica Neue,Helvetica,Arial,sans-serif">on battery, VAMP = max(5V, VBAT) &#8722; Vf via Schottky OR &#8212; see rio_pcb/</text>
+
+    <text x="40" y="604" font-size="11" fill="#6b7f96" font-family="Helvetica Neue,Helvetica,Arial,sans-serif">LRC and BCLK cross: the XIAO's order is BCLK,LRC,DIN and the module's is LRC,BCLK,DIN</text>
+  </g>
+</svg>

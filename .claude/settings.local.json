@@ -1,0 +1,34 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:ai.google.dev)",
+      "Bash(arduino-cli lib *)",
+      "Bash(arduino-cli compile *)",
+      "Bash(curl -s -m 15 \"https://de1.api.radio-browser.info/json/stations/search?tag=bollywood&limit=2&hidebroken=true\")",
+      "Bash(python3 -c \"import sys,json;[print\\(s['name'],'|',s['codec'],s['bitrate'],'kbps |',s['url_resolved']\\) for s in json.load\\(sys.stdin\\)]\")",
+      "Bash(curl -s -m 20 \"https://archive.org/advancedsearch.php?q=title%3A%28sitar%29+AND+mediatype%3A%28audio%29&fl%5B%5D=identifier&rows=2&output=json\")",
+      "Bash(curl -sIL -m 20 \"https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/f0/54/86/f0548619-1315-d4b2-ebf0-e49703172635/mzaf_6092301650198427295.plus.aac.p.m4a\")",
+      "Bash(curl -sI -m 15 \"http://strm112.1.fm/bombaybeats_mobile_mp3\")",
+      "WebFetch(domain:publicapis.dev)",
+      "Bash(curl -s -m 25 \"https://saavn.dev/api/search/songs?query=gehra%20hua&limit=1\")",
+      "Bash(python3 -c ' *)",
+      "Bash(curl -s -m 20 \"https://phish.in/api/v1/tracks?per_page=1\")",
+      "Bash(curl -s -m 20 \"https://api.jamendo.com/v3.0/tracks/?client_id=demo&format=json&limit=1\")",
+      "Bash(curl -s -o /dev/null -w \"http=%{http_code} final=%{url_effective}\\\\n\" -m 25 -L \"https://saavn.dev/api/search/songs?query=gehra%20hua&limit=1\")",
+      "Bash(curl -s -m 25 -A \"Mozilla/5.0\" \"https://www.jiosaavn.com/api.php?__call=search.getResults&q=gehra+hua&_format=json&_marker=0&api_version=4&ctx=web6dot0&n=1\")",
+      "Bash(curl -s -m 25 -A \"Mozilla/5.0\" \"https://www.jiosaavn.com/api.php?__call=song.getDetails&pids=1gHtmQ3x&_format=json&_marker=0&api_version=4&ctx=web6dot0\")",
+      "Bash(openssl enc *)",
+      "Bash(echo \"rc=$?\")",
+      "Bash(openssl version *)",
+      "WebFetch(domain:wiki.seeedstudio.com)",
+      "Bash(mkdir -p \"/Users/user/Documents/ESP-STT/i2c_scanner\")",
+      "WebFetch(domain:www.seeedstudio.com)",
+      "Bash(curl -sL -A \"Mozilla/5.0 \\(Macintosh; Intel Mac OS X 10_15_7\\) AppleWebKit/537.36 \\(KHTML, like Gecko\\) Chrome/120.0 Safari/537.36\" \"https://www.seeedstudio.com/blog/2025/12/19/add-an-oled-display-to-arduino/\")",
+      "Bash(curl -sL -o xiao_pad.kicad_mod \"https://raw.githubusercontent.com/Seeed-Studio/OPL_Kicad_Library/master/Seeed%20Studio%20XIAO%20Series%20Library/XIAO-ESP32-S3-SMD_PAD.kicad_mod\")"
+    ],
+    "additionalDirectories": [
+      "/Users/user/Documents/ESP-STT/oled_serial_display",
+      "/Users/user/Documents/ESP-STT"
+    ]
+  }
+}

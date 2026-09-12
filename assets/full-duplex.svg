@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 546" width="1200" height="546" role="img" aria-label="The three-stage microphone front end that makes full duplex possible">
+  <defs>
+    <marker id="a1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#7dd3fc"/>
+    </marker>
+    <marker id="a2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#fb7185"/>
+    </marker>
+  </defs>
+  <rect x="0" y="0" width="1200" height="546" rx="18" fill="#0b1220"/>
+  <rect x="0.5" y="0.5" width="1199" height="545" rx="18" fill="none" stroke="#22304a"/>
+
+  <g font-family="Helvetica Neue,Helvetica,Arial,sans-serif">
+    <text x="40" y="44" font-size="22" font-weight="700" fill="#e8eef6">The mic is never muted</text>
+    <text x="308" y="44" font-size="15" fill="#6b7f96">three stages in aec.cpp, and stage 3 is the one that makes it safe</text>
+
+    <!-- playback path -->
+    <rect x="40" y="80" width="170" height="60" rx="10" fill="#0f1c2e" stroke="#2b4160"/>
+    <text x="125" y="105" font-size="13" font-weight="700" fill="#e8eef6" text-anchor="middle">spkTask</text>
+    <text x="125" y="124" font-size="11" fill="#8ea3ba" text-anchor="middle">24 kHz PCM</text>
+
+    <rect x="270" y="80" width="200" height="60" rx="10" fill="#0f1c2e" stroke="#2b4160"/>
+    <text x="370" y="105" font-size="13" font-weight="700" fill="#e8eef6" text-anchor="middle">I2S1 &#8594; amp &#8594; speaker</text>
+    <text x="370" y="124" font-size="11" fill="#8ea3ba" text-anchor="middle">untouched, full quality</text>
+
+    <path d="M210 110 H266" stroke="#5eead4" stroke-width="2" fill="none" marker-end="url(#a1)"/>
+
+    <!-- acoustic echo -->
+    <path d="M470 110 C 560 110, 600 150, 600 210" stroke="#f87171" stroke-width="2.5" stroke-dasharray="4 4" fill="none" marker-end="url(#a2)"/>
+    <text x="614" y="150" font-size="12" fill="#f87171">acoustic echo</text>
+    <text x="614" y="168" font-size="11" fill="#9c6a76">the speaker is centimetres from the mic,</text>
+    <text x="614" y="184" font-size="11" fill="#9c6a76">so an open mic hears RIO far louder than you</text>
+
+    <!-- reference tap -->
+    <path d="M125 140 V186" stroke="#fb7185" stroke-width="2" fill="none" marker-end="url(#a2)"/>
+    <rect x="40" y="196" width="170" height="56" rx="10" fill="#2a1420" stroke="#fb7185"/>
+    <text x="125" y="219" font-size="12" font-weight="700" fill="#fb7185" text-anchor="middle">3:2 decimate</text>
+    <text x="125" y="237" font-size="11" fill="#c98a95" text-anchor="middle">24k &#8594; 16k, drift-free</text>
+
+    <path d="M125 252 V296" stroke="#fb7185" stroke-width="2" fill="none" marker-end="url(#a2)"/>
+    <rect x="40" y="306" width="170" height="66" rx="10" fill="#2a1420" stroke="#fb7185"/>
+    <text x="125" y="329" font-size="12" font-weight="700" fill="#fb7185" text-anchor="middle">delay line</text>
+    <text x="125" y="347" font-size="11" fill="#c98a95" text-anchor="middle">AEC_REF_DELAY_MS</text>
+    <text x="125" y="363" font-size="11" fill="#c98a95" text-anchor="middle">TX DMA + flight + RX DMA</text>
+
+    <!-- mic in -->
+    <rect x="270" y="196" width="200" height="60" rx="10" fill="#0f1c2e" stroke="#2b4160"/>
+    <text x="370" y="221" font-size="13" font-weight="700" fill="#e8eef6" text-anchor="middle">mic (I2S0, 16 kHz)</text>
+    <text x="370" y="240" font-size="11" fill="#8ea3ba" text-anchor="middle">your voice + RIO's voice</text>
+
+    <!-- three stages -->
+    <rect x="270" y="296" width="620" height="130" rx="12" fill="#0d2b2b" stroke="#5eead4" stroke-width="2"/>
+    <text x="290" y="322" font-size="12" font-weight="700" fill="#5eead4" letter-spacing="2">MIC FRONT END</text>
+
+    <rect x="290" y="334" width="180" height="76" rx="8" fill="#0b1220" stroke="#2f6b64"/>
+    <text x="380" y="358" font-size="13" font-weight="700" fill="#5eead4" text-anchor="middle">1 &#183; AEC</text>
+    <text x="380" y="378" font-size="11" fill="#9ad9cd" text-anchor="middle">subtract the echo</text>
+    <text x="380" y="396" font-size="11" fill="#9ad9cd" text-anchor="middle">measure ERLE while it does</text>
+
+    <rect x="484" y="334" width="180" height="76" rx="8" fill="#0b1220" stroke="#2f6b64"/>
+    <text x="574" y="358" font-size="13" font-weight="700" fill="#5eead4" text-anchor="middle">2 &#183; NS</text>
+    <text x="574" y="378" font-size="11" fill="#9ad9cd" text-anchor="middle">drop the room floor</text>
+    <text x="574" y="396" font-size="11" fill="#9ad9cd" text-anchor="middle">or server VAD never closes</text>
+
+    <rect x="678" y="334" width="192" height="76" rx="8" fill="#131207" stroke="#fbbf24"/>
+    <text x="774" y="358" font-size="13" font-weight="700" fill="#fbbf24" text-anchor="middle">3 &#183; DOUBLE-TALK GATE</text>
+    <text x="774" y="378" font-size="11" fill="#d9bd7a" text-anchor="middle">is this really the user?</text>
+    <text x="774" y="396" font-size="11" fill="#d9bd7a" text-anchor="middle">local VAD + a measured bar</text>
+
+    <path d="M370 256 V292" stroke="#7dd3fc" stroke-width="2" fill="none" marker-end="url(#a1)"/>
+    <path d="M210 339 H286" stroke="#fb7185" stroke-width="2" fill="none" marker-end="url(#a2)"/>
+    <path d="M470 372 H480" stroke="#5eead4" stroke-width="2" fill="none" marker-end="url(#a1)"/>
+    <path d="M664 372 H674" stroke="#5eead4" stroke-width="2" fill="none" marker-end="url(#a1)"/>
+
+    <!-- output -->
+    <rect x="940" y="334" width="220" height="76" rx="10" fill="#0f1c2e" stroke="#2b4160"/>
+    <text x="1050" y="362" font-size="13" font-weight="700" fill="#e8eef6" text-anchor="middle">micTask &#8594; Gemini</text>
+    <text x="1050" y="382" font-size="11" fill="#8ea3ba" text-anchor="middle">&#8230; or nothing at all</text>
+    <text x="1050" y="400" font-size="11" fill="#6b7f96" text-anchor="middle">gated frames are never uploaded</text>
+    <path d="M890 372 H936" stroke="#fbbf24" stroke-width="2" fill="none" marker-end="url(#a1)"/>
+
+    <!-- formula -->
+    <rect x="940" y="196" width="220" height="112" rx="10" fill="#131207" stroke="#5c4a14"/>
+    <text x="1050" y="222" font-size="12" font-weight="700" fill="#fbbf24" text-anchor="middle">the bar moves itself</text>
+    <text x="960" y="250" font-size="11.5" fill="#d9bd7a" font-family="Menlo,Consolas,monospace">bar = mic_rms</text>
+    <text x="960" y="268" font-size="11.5" fill="#d9bd7a" font-family="Menlo,Consolas,monospace">    &#215; 10^(&#8722;ERLE/20)</text>
+    <text x="960" y="286" font-size="11.5" fill="#d9bd7a" font-family="Menlo,Consolas,monospace">    &#215; GATE_MARGIN</text>
+    <text x="958" y="302" font-size="10" fill="#8a7433" font-family="Menlo,Consolas,monospace">forward iff speech &amp;&amp; out&gt;bar</text>
+
+    <!-- failure mode note -->
+    <rect x="40" y="444" width="1120" height="80" rx="10" fill="#0f1c2e" stroke="#2b4160"/>
+    <text x="60" y="466" font-size="13" font-weight="700" fill="#5eead4">So the failure mode is &#8220;loses barge-in&#8221;, never &#8220;talks to itself&#8221;.</text>
+    <text x="60" y="488" font-size="12" fill="#8ea3ba">At 0 dB ERLE the bar reaches the mic level itself, which cancellation can never exceed &#8212; the gate simply stays shut and you are back to half duplex.</text>
+    <text x="60" y="508" font-size="12" fill="#8ea3ba">Verified across the full ERLE range: echo does not leak at any value. An uncalibrated delay therefore costs a feature, it does not break the conversation.</text>
+  </g>
+</svg>

@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 500" width="1200" height="500" role="img" aria-label="The SSD1306 face: four conversation modes and four overlays">
+  <rect x="0" y="0" width="1200" height="500" rx="18" fill="#0b1220"/>
+  <rect x="0.5" y="0.5" width="1199" height="499" rx="18" fill="none" stroke="#22304a"/>
+  <g font-family="Helvetica Neue,Helvetica,Arial,sans-serif">
+    <text x="40" y="42" font-size="22" font-weight="700" fill="#e8eef6">The face</text>
+    <text x="150" y="42" font-size="15" fill="#6b7f96">128&#215;64 monochrome, so modes are told apart by motion and shape, not colour &#183; drawn at 2&#215;</text>
+
+    <!-- ============ ROW 1 : MODES ============ -->
+    <g transform="translate(40,70)">
+      <rect x="-2" y="-2" width="260" height="132" rx="6" fill="#000" stroke="#2b4160" stroke-width="2"/>
+      <g fill="none" stroke="#fff" stroke-width="3">
+        <rect x="30" y="22" width="74" height="84" rx="24"/>
+        <rect x="152" y="22" width="74" height="84" rx="24"/>
+      </g>
+      <circle cx="70" cy="64" r="13" fill="#fff"/><circle cx="192" cy="64" r="13" fill="#fff"/>
+      <text x="128" y="146" font-size="14" font-weight="700" fill="#5eead4" text-anchor="middle">IDLE</text>
+      <text x="128" y="166" font-size="11.5" fill="#8ea3ba" text-anchor="middle">breathing pupil, wandering</text>
+      <text x="128" y="182" font-size="11.5" fill="#8ea3ba" text-anchor="middle">gaze, randomised blink</text>
+    </g>
+
+    <g transform="translate(320,70)">
+      <rect x="-2" y="-2" width="260" height="132" rx="6" fill="#000" stroke="#2b4160" stroke-width="2"/>
+      <g fill="none" stroke="#fff" stroke-width="3">
+        <rect x="30" y="22" width="74" height="84" rx="24"/>
+        <rect x="152" y="22" width="74" height="84" rx="24"/>
+        <path d="M14 44 A 26 26 0 0 0 14 84" stroke-width="2.5"/>
+        <path d="M4 34 A 38 38 0 0 0 4 94" stroke-width="2"/>
+        <path d="M242 44 A 26 26 0 0 1 242 84" stroke-width="2.5"/>
+        <path d="M252 34 A 38 38 0 0 1 252 94" stroke-width="2"/>
+      </g>
+      <circle cx="67" cy="64" r="21" fill="#fff"/><circle cx="189" cy="64" r="21" fill="#fff"/>
+      <text x="128" y="146" font-size="14" font-weight="700" fill="#5eead4" text-anchor="middle">LISTENING</text>
+      <text x="128" y="166" font-size="11.5" fill="#8ea3ba" text-anchor="middle">wide pupils, outward</text>
+      <text x="128" y="182" font-size="11.5" fill="#8ea3ba" text-anchor="middle">pulse arcs</text>
+    </g>
+
+    <g transform="translate(600,70)">
+      <rect x="-2" y="-2" width="260" height="132" rx="6" fill="#000" stroke="#2b4160" stroke-width="2"/>
+      <g fill="none" stroke="#fff" stroke-width="3">
+        <rect x="30" y="22" width="74" height="84" rx="24"/>
+        <rect x="152" y="22" width="74" height="84" rx="24"/>
+      </g>
+      <g stroke="#fff" stroke-width="3" stroke-linecap="round">
+        <path d="M67 6 V16"/><path d="M100 14 L95 23"/><path d="M34 14 L39 23"/>
+        <path d="M189 122 V112"/><path d="M156 114 L161 105"/><path d="M222 114 L217 105"/>
+      </g>
+      <ellipse cx="52" cy="64" rx="9" ry="15" fill="#fff"/><ellipse cx="174" cy="64" rx="9" ry="15" fill="#fff"/>
+      <text x="128" y="146" font-size="14" font-weight="700" fill="#5eead4" text-anchor="middle">PROCESSING</text>
+      <text x="128" y="166" font-size="11.5" fill="#8ea3ba" text-anchor="middle">rotating dashes, pupils</text>
+      <text x="128" y="182" font-size="11.5" fill="#8ea3ba" text-anchor="middle">scanning left to right</text>
+    </g>
+
+    <g transform="translate(880,70)">
+      <rect x="-2" y="-2" width="260" height="132" rx="6" fill="#000" stroke="#2b4160" stroke-width="2"/>
+      <g fill="none" stroke="#fff" stroke-width="3">
+        <rect x="30" y="22" width="74" height="84" rx="24"/>
+        <rect x="152" y="22" width="74" height="84" rx="24"/>
+      </g>
+      <g fill="#fff">
+        <rect x="50" y="52" width="10" height="28" rx="2"/><rect x="64" y="38" width="10" height="42" rx="2"/><rect x="78" y="60" width="10" height="20" rx="2"/>
+        <rect x="172" y="44" width="10" height="36" rx="2"/><rect x="186" y="58" width="10" height="22" rx="2"/><rect x="200" y="34" width="10" height="46" rx="2"/>
+      </g>
+      <text x="128" y="146" font-size="14" font-weight="700" fill="#5eead4" text-anchor="middle">SPEAKING</text>
+      <text x="128" y="166" font-size="11.5" fill="#8ea3ba" text-anchor="middle">pupils become a bouncing</text>
+      <text x="128" y="182" font-size="11.5" fill="#8ea3ba" text-anchor="middle">3-bar equalizer</text>
+    </g>
+
+    <!-- ============ ROW 2 : OVERLAYS ============ -->
+    <g transform="translate(40,290)">
+      <rect x="-2" y="-2" width="260" height="132" rx="6" fill="#000" stroke="#2b4160" stroke-width="2"/>
+      <rect x="4" y="4" width="248" height="120" rx="3" fill="none" stroke="#fff" stroke-width="2"/>
+      <g fill="none" stroke="#fff" stroke-width="3">
+        <path d="M40 64 Q 67 46 94 64 Q 67 82 40 64 Z"/>
+        <path d="M162 64 Q 189 46 216 64 Q 189 82 162 64 Z"/>
+      </g>
+      <g stroke="#fff" stroke-width="2" stroke-linecap="round" opacity="0.8">
+        <path d="M128 30 V14"/><path d="M128 98 V114"/><path d="M112 64 H96"/><path d="M144 64 H160"/>
+      </g>
+      <text x="128" y="146" font-size="14" font-weight="700" fill="#fbbf24" text-anchor="middle">TOOL OVERLAY</text>
+      <text x="128" y="166" font-size="11.5" fill="#8ea3ba" text-anchor="middle">aperture blades, shutter</text>
+      <text x="128" y="182" font-size="11.5" fill="#8ea3ba" text-anchor="middle">flash &#183; 1 px frame &#183; ~1.4 s</text>
+    </g>
+
+    <g transform="translate(320,290)">
+      <rect x="-2" y="-2" width="260" height="132" rx="6" fill="#000" stroke="#2b4160" stroke-width="2"/>
+      <g fill="none" stroke="#fff" stroke-width="2.5">
+        <rect x="52" y="10" width="52" height="46" rx="16"/>
+        <rect x="152" y="10" width="52" height="46" rx="16"/>
+      </g>
+      <circle cx="78" cy="33" r="9" fill="#fff"/><circle cx="178" cy="33" r="9" fill="#fff"/>
+      <g font-family="Menlo,Consolas,monospace" font-size="14" fill="#fff">
+        <text x="10" y="86">aap kis tarah kee</text>
+        <text x="10" y="110">problam solv karane</text>
+      </g>
+      <text x="128" y="146" font-size="14" font-weight="700" fill="#7dd3fc" text-anchor="middle">LIVE SUBTITLES</text>
+      <text x="128" y="166" font-size="11.5" fill="#8ea3ba" text-anchor="middle">eyes shrink and rise; Hindi is</text>
+      <text x="128" y="182" font-size="11.5" fill="#8ea3ba" text-anchor="middle">romanised, never dropped</text>
+    </g>
+
+    <g transform="translate(600,290)">
+      <rect x="-2" y="-2" width="260" height="132" rx="6" fill="#000" stroke="#2b4160" stroke-width="2"/>
+      <g fill="none" stroke="#fff" stroke-width="3">
+        <rect x="30" y="14" width="74" height="70" rx="22"/>
+        <rect x="152" y="14" width="74" height="70" rx="22"/>
+      </g>
+      <circle cx="67" cy="49" r="12" fill="#fff"/><circle cx="189" cy="49" r="12" fill="#fff"/>
+      <path d="M0 96 H256" stroke="#fff" stroke-width="1.5"/>
+      <g fill="#fff">
+        <rect x="8" y="108" width="5" height="12"/><rect x="16" y="102" width="5" height="18"/>
+        <rect x="24" y="112" width="5" height="8"/><rect x="32" y="104" width="5" height="16"/>
+      </g>
+      <text x="46" y="119" font-family="Menlo,Consolas,monospace" font-size="14" fill="#fff">Gehra Hua &#183; Prat</text>
+      <text x="128" y="146" font-size="14" font-weight="700" fill="#a78bfa" text-anchor="middle">NOW PLAYING</text>
+      <text x="128" y="166" font-size="11.5" fill="#8ea3ba" text-anchor="middle">persistent strip, not an overlay &#8212;</text>
+      <text x="128" y="182" font-size="11.5" fill="#8ea3ba" text-anchor="middle">a song outlives any one turn</text>
+    </g>
+
+    <g transform="translate(880,290)">
+      <rect x="-2" y="-2" width="260" height="132" rx="6" fill="#000" stroke="#2b4160" stroke-width="2"/>
+      <g fill="none" stroke="#fff" stroke-width="3">
+        <rect x="14" y="22" width="74" height="84" rx="24"/>
+        <rect x="168" y="22" width="74" height="84" rx="24"/>
+      </g>
+      <circle cx="51" cy="64" r="13" fill="#fff"/><circle cx="205" cy="64" r="13" fill="#fff"/>
+      <g fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round">
+        <path d="M110 72 A 26 26 0 0 1 146 72"/>
+        <path d="M117 80 A 16 16 0 0 1 139 80"/>
+        <circle cx="128" cy="90" r="2.5" fill="#fff"/>
+        <path d="M106 46 L150 96"/>
+      </g>
+      <text x="128" y="146" font-size="14" font-weight="700" fill="#fb7185" text-anchor="middle">NETWORK DOWN</text>
+      <text x="128" y="166" font-size="11.5" fill="#8ea3ba" text-anchor="middle">shown only while down, so it</text>
+      <text x="128" y="182" font-size="11.5" fill="#8ea3ba" text-anchor="middle">never adds clutter in normal use</text>
+    </g>
+  </g>
+</svg>

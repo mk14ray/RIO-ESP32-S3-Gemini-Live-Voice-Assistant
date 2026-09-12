@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" width="1200" height="720" role="img" aria-label="RIO data flow: uplink, downlink and tool lanes">
+  <defs>
+    <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#7dd3fc"/>
+    </marker>
+    <marker id="arm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#5eead4"/>
+    </marker>
+    <marker id="ara" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#fbbf24"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="1200" height="720" rx="18" fill="#0b1220"/>
+  <rect x="0.5" y="0.5" width="1199" height="719" rx="18" fill="none" stroke="#22304a"/>
+
+  <g font-family="Helvetica Neue,Helvetica,Arial,sans-serif">
+    <text x="40" y="46" font-size="22" font-weight="700" fill="#e8eef6">RIO &#8212; data flow</text>
+    <text x="240" y="46" font-size="15" fill="#6b7f96">3 FreeRTOS tasks &#183; audio on core 1, TLS on core 0 &#183; every large buffer in PSRAM</text>
+
+    <!-- ================= LANE 1 : UPLINK ================= -->
+    <text x="40" y="92" font-size="13" font-weight="700" fill="#7dd3fc" letter-spacing="2">UPLINK &#8212; YOUR VOICE, 16 kHz</text>
+
+    <rect x="40" y="106" width="150" height="78" rx="10" fill="#0f1c2e" stroke="#2b4160"/>
+    <text x="115" y="134" font-size="14" font-weight="700" fill="#e8eef6" text-anchor="middle">PDM mic</text>
+    <text x="115" y="154" font-size="12" fill="#8ea3ba" text-anchor="middle">onboard, I2S0</text>
+    <text x="115" y="172" font-size="12" fill="#8ea3ba" text-anchor="middle">GPIO 41 / 42</text>
+
+    <rect x="230" y="106" width="200" height="78" rx="10" fill="#0d2b2b" stroke="#5eead4"/>
+    <text x="330" y="132" font-size="14" font-weight="700" fill="#5eead4" text-anchor="middle">AEC &#8594; NS &#8594; GATE</text>
+    <text x="330" y="152" font-size="12" fill="#9ad9cd" text-anchor="middle">esp-sr front end</text>
+    <text x="330" y="170" font-size="12" fill="#9ad9cd" text-anchor="middle">aec.cpp</text>
+
+    <rect x="470" y="106" width="160" height="78" rx="10" fill="#0f1c2e" stroke="#2b4160"/>
+    <text x="550" y="132" font-size="14" font-weight="700" fill="#e8eef6" text-anchor="middle">micTask</text>
+    <text x="550" y="152" font-size="12" fill="#8ea3ba" text-anchor="middle">gain &#183; base64</text>
+    <text x="550" y="170" font-size="12" fill="#8ea3ba" text-anchor="middle">100 ms JSON frames</text>
+
+    <rect x="670" y="106" width="180" height="78" rx="10" fill="#0f1c2e" stroke="#2b4160"/>
+    <text x="760" y="132" font-size="14" font-weight="700" fill="#e8eef6" text-anchor="middle">netTask (core 0)</text>
+    <text x="760" y="152" font-size="12" fill="#8ea3ba" text-anchor="middle">sole socket owner</text>
+    <text x="760" y="170" font-size="12" fill="#8ea3ba" text-anchor="middle">slot queue, zero copy</text>
+
+    <rect x="890" y="106" width="110" height="78" rx="10" fill="#0f1c2e" stroke="#2b4160"/>
+    <text x="945" y="140" font-size="14" font-weight="700" fill="#e8eef6" text-anchor="middle">wss://</text>
+    <text x="945" y="160" font-size="12" fill="#8ea3ba" text-anchor="middle">hand-rolled WS</text>
+
+    <rect x="1040" y="96" width="120" height="98" rx="10" fill="#1a1533" stroke="#a78bfa"/>
+    <text x="1100" y="128" font-size="14" font-weight="700" fill="#c4b5fd" text-anchor="middle">Gemini</text>
+    <text x="1100" y="146" font-size="14" font-weight="700" fill="#c4b5fd" text-anchor="middle">Live</text>
+    <text x="1100" y="168" font-size="11" fill="#9f92d4" text-anchor="middle">3.1-flash-live</text>
+    <text x="1100" y="184" font-size="11" fill="#9f92d4" text-anchor="middle">server VAD</text>
+
+    <g stroke="#7dd3fc" stroke-width="2" marker-end="url(#ar)" fill="none">
+      <path d="M190 145 H226"/><path d="M430 145 H466"/><path d="M630 145 H666"/>
+      <path d="M850 145 H886"/><path d="M1000 145 H1036"/>
+    </g>
+
+    <!-- ================= LANE 2 : DOWNLINK ================= -->
+    <text x="40" y="262" font-size="13" font-weight="700" fill="#5eead4" letter-spacing="2">DOWNLINK &#8212; RIO'S VOICE (AND MUSIC), 24 kHz</text>
+
+    <rect x="40" y="276" width="150" height="78" rx="10" fill="#0f1c2e" stroke="#2b4160"/>
+    <text x="115" y="304" font-size="14" font-weight="700" fill="#e8eef6" text-anchor="middle">MAX98357A</text>
+    <text x="115" y="324" font-size="12" fill="#8ea3ba" text-anchor="middle">class-D amp</text>
+    <text x="115" y="342" font-size="12" fill="#8ea3ba" text-anchor="middle">&#8594; speaker</text>
+
+    <rect x="230" y="276" width="200" height="78" rx="10" fill="#0f1c2e" stroke="#2b4160"/>
+    <text x="330" y="304" font-size="14" font-weight="700" fill="#e8eef6" text-anchor="middle">spkTask</text>
+    <text x="330" y="324" font-size="12" fill="#8ea3ba" text-anchor="middle">mono &#8594; stereo</text>
+    <text x="330" y="342" font-size="12" fill="#8ea3ba" text-anchor="middle">I2S1 std TX</text>
+
+    <rect x="470" y="276" width="160" height="78" rx="10" fill="#0f1c2e" stroke="#2b4160"/>
+    <text x="550" y="304" font-size="14" font-weight="700" fill="#e8eef6" text-anchor="middle">gPcmOut</text>
+    <text x="550" y="324" font-size="12" fill="#8ea3ba" text-anchor="middle">2 MB PSRAM ring</text>
+    <text x="550" y="342" font-size="12" fill="#8ea3ba" text-anchor="middle">replies arrive faster</text>
+
+    <rect x="670" y="276" width="180" height="78" rx="10" fill="#0f1c2e" stroke="#2b4160"/>
+    <text x="760" y="304" font-size="14" font-weight="700" fill="#e8eef6" text-anchor="middle">netTask</text>
+    <text x="760" y="324" font-size="12" fill="#8ea3ba" text-anchor="middle">raw-scan base64</text>
+    <text x="760" y="342" font-size="12" fill="#8ea3ba" text-anchor="middle">+ filtered JSON</text>
+
+    <rect x="890" y="276" width="110" height="78" rx="10" fill="#0f1c2e" stroke="#2b4160"/>
+    <text x="945" y="310" font-size="14" font-weight="700" fill="#e8eef6" text-anchor="middle">96 KB</text>
+    <text x="945" y="330" font-size="12" fill="#8ea3ba" text-anchor="middle">WS reassembly</text>
+
+    <g stroke="#5eead4" stroke-width="2" marker-end="url(#arm)" fill="none">
+      <path d="M1036 315 H1004"/><path d="M886 315 H854"/><path d="M666 315 H634"/>
+      <path d="M466 315 H434"/><path d="M226 315 H194"/>
+    </g>
+
+    <!-- echo reference feedback -->
+    <path d="M300 276 V200" stroke="#fb7185" stroke-width="2" stroke-dasharray="6 4" fill="none"/>
+    <path d="M300 186 L293 200 L307 200 Z" fill="#fb7185"/>
+    <text x="316" y="216" font-size="12" fill="#fb7185">3:2 decimate &#8594; delay line (AEC_REF_DELAY_MS) = echo reference</text>
+    <text x="316" y="234" font-size="11" fill="#9c6a76">the only copy that is resampled; playback itself is untouched</text>
+
+    <!-- acoustic coupling -->
+    <path d="M100 276 C 60 250, 60 210, 100 184" stroke="#f87171" stroke-width="2" stroke-dasharray="3 3" fill="none"/>
+    <text x="30" y="232" font-size="11" fill="#f87171" transform="rotate(-90 30 232)">acoustic echo, ~10 cm</text>
+
+    <!-- ================= LANE 3 : TOOLS ================= -->
+    <text x="40" y="424" font-size="13" font-weight="700" fill="#fbbf24" letter-spacing="2">TOOL BELT &#8212; toolCall / toolResponse, each on its own task so netTask never blocks</text>
+
+    <path d="M760 354 V436" stroke="#fbbf24" stroke-width="2" fill="none" marker-end="url(#ara)"/>
+
+    <rect x="40" y="440" width="1120" height="240" rx="12" fill="#161207" stroke="#5c4a14" stroke-dasharray="7 5"/>
+
+    <rect x="60" y="470" width="208" height="190" rx="10" fill="#0f1c2e" stroke="#fbbf24"/>
+    <text x="164" y="500" font-size="14" font-weight="700" fill="#fbbf24" text-anchor="middle">capture_image</text>
+    <text x="164" y="526" font-size="12" fill="#c3cddb" text-anchor="middle">OV2640 / OV3660</text>
+    <text x="164" y="546" font-size="12" fill="#8ea3ba" text-anchor="middle">consent gate in</text>
+    <text x="164" y="564" font-size="12" fill="#8ea3ba" text-anchor="middle">firmware, not prompt</text>
+    <text x="164" y="590" font-size="12" fill="#8ea3ba" text-anchor="middle">meter &#183; tone &#183; HDR</text>
+    <text x="164" y="608" font-size="12" fill="#8ea3ba" text-anchor="middle">sharpest of N frames</text>
+    <text x="164" y="636" font-size="11" fill="#6b7f96" text-anchor="middle">sensor powered down</text>
+    <text x="164" y="652" font-size="11" fill="#6b7f96" text-anchor="middle">between shots</text>
+
+    <rect x="288" y="470" width="208" height="190" rx="10" fill="#0f1c2e" stroke="#fbbf24"/>
+    <text x="392" y="500" font-size="14" font-weight="700" fill="#fbbf24" text-anchor="middle">play_song</text>
+    <text x="392" y="526" font-size="12" fill="#c3cddb" text-anchor="middle">JioSaavn search</text>
+    <text x="392" y="546" font-size="12" fill="#8ea3ba" text-anchor="middle">DES-ECB unwrap</text>
+    <text x="392" y="564" font-size="12" fill="#8ea3ba" text-anchor="middle">MP4 demux (moov)</text>
+    <text x="392" y="590" font-size="12" fill="#8ea3ba" text-anchor="middle">AAC-LC via helix</text>
+    <text x="392" y="608" font-size="12" fill="#8ea3ba" text-anchor="middle">44.1k &#8594; 24k resample</text>
+    <text x="392" y="636" font-size="11" fill="#6b7f96" text-anchor="middle">shares gPcmOut, so</text>
+    <text x="392" y="652" font-size="11" fill="#6b7f96" text-anchor="middle">AEC covers music too</text>
+
+    <rect x="516" y="470" width="208" height="190" rx="10" fill="#0f1c2e" stroke="#fbbf24"/>
+    <text x="620" y="500" font-size="14" font-weight="700" fill="#fbbf24" text-anchor="middle">stop_song</text>
+    <text x="620" y="526" font-size="12" fill="#c3cddb" text-anchor="middle">explicit stop only</text>
+    <text x="620" y="552" font-size="12" fill="#8ea3ba" text-anchor="middle">speaking to RIO</text>
+    <text x="620" y="570" font-size="12" fill="#8ea3ba" text-anchor="middle">already barges in</text>
+    <text x="620" y="600" font-size="11" fill="#6b7f96" text-anchor="middle">a lookup in flight is</text>
+    <text x="620" y="616" font-size="11" fill="#6b7f96" text-anchor="middle">cancellable; the model's</text>
+    <text x="620" y="632" font-size="11" fill="#6b7f96" text-anchor="middle">own confirmation is</text>
+    <text x="620" y="648" font-size="11" fill="#6b7f96" text-anchor="middle">never a barge-in</text>
+
+    <rect x="744" y="470" width="208" height="190" rx="10" fill="#0f1c2e" stroke="#fbbf24"/>
+    <text x="848" y="500" font-size="14" font-weight="700" fill="#fbbf24" text-anchor="middle">get_news</text>
+    <text x="848" y="526" font-size="12" fill="#c3cddb" text-anchor="middle">Google News RSS</text>
+    <text x="848" y="546" font-size="12" fill="#8ea3ba" text-anchor="middle">one HTTPS GET</text>
+    <text x="848" y="564" font-size="12" fill="#8ea3ba" text-anchor="middle">streaming XML match</text>
+    <text x="848" y="590" font-size="12" fill="#8ea3ba" text-anchor="middle">top 3 headlines</text>
+    <text x="848" y="620" font-size="11" fill="#6b7f96" text-anchor="middle">&#8220;Headline - Source&#8221;</text>
+    <text x="848" y="636" font-size="11" fill="#6b7f96" text-anchor="middle">comes free in the feed</text>
+
+    <rect x="972" y="470" width="168" height="190" rx="10" fill="#0f1c2e" stroke="#fbbf24"/>
+    <text x="1056" y="500" font-size="14" font-weight="700" fill="#fbbf24" text-anchor="middle">get_holidays</text>
+    <text x="1056" y="526" font-size="12" fill="#c3cddb" text-anchor="middle">per-state list</text>
+    <text x="1056" y="546" font-size="12" fill="#8ea3ba" text-anchor="middle">server-rendered</text>
+    <text x="1056" y="564" font-size="12" fill="#8ea3ba" text-anchor="middle">HTML, 320 KB</text>
+    <text x="1056" y="590" font-size="12" fill="#8ea3ba" text-anchor="middle">next 3 upcoming</text>
+    <text x="1056" y="620" font-size="11" fill="#6b7f96" text-anchor="middle">india.gov.in is a JS</text>
+    <text x="1056" y="636" font-size="11" fill="#6b7f96" text-anchor="middle">shell &#8212; unfetchable</text>
+  </g>
+</svg>
